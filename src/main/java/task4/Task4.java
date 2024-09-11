@@ -8,9 +8,11 @@ import java.util.Scanner;
 public class Task4 {
     public static void main(String[] args) {
 
-        Scanner scanner = null;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите путь к файлу с  массивом целых чисел nums: ");
+        String filePath = scanner.nextLine();
         try {
-            scanner = new Scanner(new FileReader("filePath"));
+            scanner = new Scanner(new FileReader(filePath));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

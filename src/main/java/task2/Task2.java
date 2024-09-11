@@ -11,8 +11,13 @@ public class Task2 {
 
     public static void main(String[] args) throws IOException {
 
-        Scanner scanner1 = new Scanner(new FileReader(""));
-        Scanner scanner2 = new Scanner(new FileReader(""));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите путь к файлу с координатами окружности: ");
+        String filePathCircle = scanner.nextLine();
+        Scanner scanner1 = new Scanner(new FileReader(filePathCircle));
+        System.out.print("Введите путь к файлу с координатами точек: ");
+        String filePathPoint = scanner.nextLine();
+        Scanner scanner2 = new Scanner(new FileReader(filePathPoint));
 
         if (!scanner1.hasNextFloat() || !scanner2.hasNextFloat()) {
             System.out.println("Файлы пусты!");

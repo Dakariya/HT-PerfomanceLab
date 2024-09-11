@@ -7,18 +7,26 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Task3 {
     public static void main(String[] args) {
-        JSONObject valuesJson = readJsonFile("filePath");
-        JSONObject testsJson = readJsonFile("filePath");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите путь к файлу values.json: ");
+        String filePathValues = scanner.nextLine();
+        JSONObject valuesJson = readJsonFile(filePathValues);
+        System.out.print("Введите путь к файлу tests.json: ");
+        String filePathTest = scanner.nextLine();
+        JSONObject testsJson = readJsonFile(filePathTest);
 
         JSONArray values = (JSONArray) valuesJson.get("values");
         JSONArray tests = (JSONArray) testsJson.get("tests");
 
         makeReport(tests, values);
 
-        writeJsonFile(testsJson, "filePath");
+        System.out.print("Введите путь к файлу report.json: ");
+        String filePathReport = scanner.nextLine();
+        writeJsonFile(testsJson, filePathReport);
     }
 
     private static JSONObject readJsonFile(String file) {
